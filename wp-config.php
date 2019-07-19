@@ -29,7 +29,7 @@ define( 'DB_USER', 'my' );
 define( 'DB_PASSWORD', 'my2019' );
 
 /** MySQL hostname */
-define( 'DB_HOST', '10.4.18.93:32000' );
+define( 'DB_HOST', 'mysql.default.svc.cluster.local:3600' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -63,7 +63,7 @@ define( 'NONCE_SALT',       '7U%f1_Et3=H$~Pq,9-:d`t=*+g]ddvi3gIlhBEo35u`w2wf [;@
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'wpq_';
+$table_prefix = 'wpy_';
 
 /**
  * For developers: WordPress debugging mode.
