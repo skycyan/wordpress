@@ -75,5 +75,8 @@ RUN set -ex; \
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
+ENV PORT=80
+EXPOSE 80
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
