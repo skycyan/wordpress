@@ -71,12 +71,14 @@ ADD . /var/www/html
 RUN set -ex; \
     mkdir /usr/src/wordpress; \
     cp -rfp /var/www/html/* /usr/src/wordpress; \
-    chown -R www-data:www-data /usr/src/wordpress
+    chown -R www-data:www-data /usr/src/wordpress; \
+    sed -i 's/80/8080/' /etc/apache2/ports.conf
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
-ENV PORT 80
-EXPOSE 80
+
+ENV PORT 8080
+EXPOSE 8080
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
