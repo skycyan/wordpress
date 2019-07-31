@@ -71,7 +71,10 @@ ADD . /var/www/html
 RUN set -ex; \
     mkdir /usr/src/wordpress; \
     cp -rfp /var/www/html/* /usr/src/wordpress; \
-    chown -R www-data:www-data /usr/src/wordpress
+    chown -R www-data:www-data /usr/src/wordpress; \
+    ln -sf /dev/stdout /var/log/apache2/access.log; \
+    ln -sf /dev/stdout /var/log/apache2/other_vhosts_access.log; \
+    ln -sf /dev/stderr /var/log/apache2/error.log
 #    sed -i 's/80/8080/' /etc/apache2/ports.conf
 
 COPY docker-entrypoint.sh /usr/local/bin/
