@@ -74,7 +74,7 @@ RUN set -ex; \
     mkdir /usr/src/wordpress; \
     cp -rfp /var/www/html/* /usr/src/wordpress; \
     chown -R www-data:www-data /usr/src/wordpress; \
-    chown 777 /usr/local/bin/apache2-foreground
+    chmod 777 /usr/local/bin/apache2-foreground
 #    sed -i 's/80/8080/' /etc/apache2/ports.conf
 
 ENV PORT 80
