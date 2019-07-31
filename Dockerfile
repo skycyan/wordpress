@@ -67,6 +67,8 @@ RUN { \
 
 RUN a2enmod rewrite expires
 
+COPY docker-entrypoint.sh apache2-foreground /usr/local/bin/
+
 ADD . /var/www/html
 RUN set -ex; \
     mkdir /usr/src/wordpress; \
@@ -74,11 +76,9 @@ RUN set -ex; \
     chown -R www-data:www-data /usr/src/wordpress; \
     ln -sf /dev/stdout /var/log/apache2/access.log; \
     ln -sf /dev/stdout /var/log/apache2/other_vhosts_access.log; \
-    ln -sf /dev/stderr /var/log/apache2/error.log
+    ln -sf /dev/stderr /var/log/apache2/error.log; \
+    chown 777 /usr/local/bin/apache2-foreground
 #    sed -i 's/80/8080/' /etc/apache2/ports.conf
-
-COPY docker-entrypoint.sh /usr/local/bin/
-
 
 ENV PORT 80
 EXPOSE 80
