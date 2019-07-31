@@ -23,7 +23,7 @@ file_env() {
 	unset "$fileVar"
 }
 
-echo "$1" >> /tmp/info
+echo "docker-entrypoint.sh $1" >> /tmp/info
 if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 	if [ "$(id -u)" = '0' ]; then
 		case "$1" in
@@ -288,5 +288,5 @@ EOPHP
 	done
 fi
 
-echo "$@" >> /tmp/info
+echo "docker-entrypoint.sh $@" >> /tmp/info
 exec "$@"
