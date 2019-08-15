@@ -29,7 +29,7 @@ define( 'DB_USER', 'my' );
 define( 'DB_PASSWORD', 'my2019' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mysql:3306' );
+define( 'DB_HOST', 'mysql.default:3306' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
